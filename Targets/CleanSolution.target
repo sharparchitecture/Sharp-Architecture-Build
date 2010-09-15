@@ -7,8 +7,10 @@
     <Message Text="Cleaning up temp files prior to build" Importance="High"/>
 
     <RemoveDir Directories="@(ProjectBuildArtefactFolders)" />
+    
     <CleanFolder Path="$(DropsPath)" Force="True" ContinueOnError="true" />
 
+    
   </Target>
 
 </Project>

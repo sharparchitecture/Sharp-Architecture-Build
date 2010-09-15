@@ -8,10 +8,4 @@
 
   <Import Project="$(PropertiesPath)\Global.Imports" />
 
-  <Target Name="Build" 
-          DependsOnTargets="CleanSolution;
-                            BuildSolutions;
-                            RunMSpecSpecifications;
-                            Package;
-                            BuildSuccess" />
 </Project>

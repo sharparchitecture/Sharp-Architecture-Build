@@ -5,33 +5,9 @@
   <Target Name="Package"
           DependsOnTargets="CreateDrops">
 
-    <ItemGroup>
-      <WebAppFiles Include="$(WebAppPath)\**\*.*" 
-                   Exclude="$(WebAppPath)\**\*.cs;
-                            $(WebAppPath)\**\*.csproj;
-                            $(WebAppPath)\**\*.user;
-                            $(WebAppPath)\**\*.vspscc;
-                            $(WebAppPath)\**\bin\*.pdb;
-                            $(WebAppPath)\**\*.xml;
-                            $(WebAppPath)\**\Code\**;
-                            $(WebAppPath)\**\Initialisers\**;
-                            $(WebAppPath)\**\obj\**;
-                            $(WebAppPath)\**\Properties\**;
-                            $(WebAppPath)\**\Registrars\**;
-                            $(WebAppPath)\**\ResourceFiles\**;" />
-
-      <SpecificationReportFiles Include="$(SpecificationReportPath)\**\*.*" />
-    </ItemGroup>
-    
-    <Zip ZipFileName="$(DropsPath)\$(GlobalBuildVersionNumber)\$(PackageName).v$(GlobalBuildVersionNumber).zip" 
-         Files="@(WebAppFiles)"
-         WorkingDirectory="$(WebAppPath)"
-         Flatten ="false"
-         ZipLevel="10"/>
-
-    <Zip ZipFileName="$(DropsPath)\$(GlobalBuildVersionNumber)\$(PackageName).Specifications.v$(GlobalBuildVersionNumber).zip"
-         Files="@(SpecificationReportFiles)"
-         WorkingDirectory="$(SpecificationReportPath)"
+    <Zip ZipFileName="%(PackageName)"
+         Files="@(PackageFiles)"
+         WorkingDirectory="$(MSBuildProjectDirectory)"
          Flatten ="false"
          ZipLevel="10"/>
 
