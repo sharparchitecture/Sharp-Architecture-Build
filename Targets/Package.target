@@ -11,6 +11,8 @@
          Flatten ="false"
          ZipLevel="10"/>
 
+	  <Message Text="##teamcity[publishArtifacts '%(PackageFiles.PackageName)']"  />
+	  
   </Target>
 
 </Project>
