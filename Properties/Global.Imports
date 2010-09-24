@@ -19,5 +19,6 @@
   <Import Project="$(TargetsPath)\CreateDrops.target" />
   <Import Project="$(TargetsPath)\Package.target" />
   <Import Project="$(TargetsPath)\RunMSpecSpecifications.target" />
+  <Import Project="$(TargetsPath)\UpdateAssemblyVersion.target" />
 
 </Project>

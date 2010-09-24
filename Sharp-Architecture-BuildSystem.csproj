@@ -44,6 +44,7 @@
     <None Include="Targets\Package.target" />
     <None Include="Targets\RunMSpecSpecifications.target" />
     <None Include="Targets\Template.target" />
+    <None Include="Targets\UpdateAssemblyVersion.target" />
     <None Include="Tasks\Microsoft.Sdc.Common.tasks" />
     <None Include="Tasks\MSBuild.Community.tasks" />
     <None Include="Tasks\MSBuild.Extended.tasks" />

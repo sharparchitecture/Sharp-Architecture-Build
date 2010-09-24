@@ -3,6 +3,7 @@
 
   <Target Name="UpdateAssemblyVersion">
     <AssemblyInfo OutputFile="$(AssemblyVersionFile)"
+                  CodeLanguage="C#"
                   AssemblyFileVersion="$(GlobalBuildVersionNumber)"
                   AssemblyInformationalVersion="$(GlobalBuildVersionNumber)"
                   AssemblyVersion="$(GlobalBuildVersionNumber)" />
