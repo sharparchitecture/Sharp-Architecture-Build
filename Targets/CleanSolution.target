@@ -10,7 +10,6 @@
     
     <CleanFolder Path="$(DropsPath)" Force="True" ContinueOnError="true" />
 
-    
   </Target>
 
 </Project>

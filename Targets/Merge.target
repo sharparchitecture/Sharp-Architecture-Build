@@ -4,9 +4,11 @@
 
   <Target Name="Merge">
 
-    <ILMerge InputAssemblies="@(MergeFiles)"
-             OutputFile="%(MergedAssembly)" />
-  </Target>
+    <ILMerge ToolPath="$(ToolsPath)"
+             InputAssemblies="@(MergeFiles)"
+             OutputFile="%(MergedAssembly)"
+             LogFile="$(SolutionRoot)\ILMerge.log"
+             DebugInfo="true" />
 
   </Target>
 

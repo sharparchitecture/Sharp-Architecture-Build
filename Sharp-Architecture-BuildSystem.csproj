@@ -59,6 +59,7 @@
     <Content Include="Tasks\Microsoft.Sdc.Tasks.dll" />
     <Content Include="Tasks\MSBuild.Community.Tasks.dll" />
     <Content Include="Tasks\MSBuild.Extended.Tasks.dll" />
+    <Content Include="Tools\ILMerge.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
