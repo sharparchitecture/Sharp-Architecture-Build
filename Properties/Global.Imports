@@ -17,6 +17,7 @@
   <Import Project="$(TargetsPath)\BuildSuccess.target" />
   <Import Project="$(TargetsPath)\CleanSolution.target" />
   <Import Project="$(TargetsPath)\CreateDrops.target" />
+  <Import Project="$(TargetsPath)\Merge.target" />
   <Import Project="$(TargetsPath)\Package.target" />
   <Import Project="$(TargetsPath)\RunMSpecSpecifications.target" />
   <Import Project="$(TargetsPath)\UpdateAssemblyVersion.target" />

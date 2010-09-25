@@ -33,29 +33,32 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="BuildSystem.proj" />
-    <None Include="Properties\Build.properties" />
+    <None Include="Properties\Build.properties">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Common.properties" />
     <None Include="Properties\CPUArchitecture.properties" />
     <None Include="Properties\Global.Imports" />
     <None Include="Targets\BuildSolutions.target" />
     <None Include="Targets\BuildSuccess.target" />
     <None Include="Targets\CleanSolution.target" />
+    <None Include="Targets\Merge.target" />
     <None Include="Targets\CreateDrops.target" />
     <None Include="Targets\Package.target" />
-    <None Include="Targets\RunMSpecSpecifications.target" />
+    <None Include="Targets\RunMSpecSpecifications.target">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Targets\Template.target" />
     <None Include="Targets\UpdateAssemblyVersion.target" />
     <None Include="Tasks\Microsoft.Sdc.Common.tasks" />
     <None Include="Tasks\MSBuild.Community.tasks" />
     <None Include="Tasks\MSBuild.Extended.tasks" />
-    <None Include="Versioning\VersionNumber.exe.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Tasks\ICSharpCode.SharpZipLib.dll" />
     <Content Include="Tasks\Microsoft.Sdc.Tasks.dll" />
     <Content Include="Tasks\MSBuild.Community.Tasks.dll" />
     <Content Include="Tasks\MSBuild.Extended.Tasks.dll" />
-    <Content Include="Versioning\VersionNumber.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
