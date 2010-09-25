@@ -14,7 +14,7 @@
     <Choose>
         <When Condition="'$(IsDesktopBuild)' != 'true'">
             <PropertyGroup>
-                <MSpecOutputType>--html --teamcity --silent</MSpecOutputType>
+              <MSpecOutputType>--teamcity --html</MSpecOutputType>
             </PropertyGroup>
         </When>
         <Otherwise>
