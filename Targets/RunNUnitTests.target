@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="All">
+
+  <Target Name="RunNUnitTests"
+          DependsOnTargets="CreateDrops">
+    <NUnit Assemblies="@(AssembliesToTestWithNUnit)" 
+           ToolPath="$(ToolsPath)\NUnit.2.5.7\"
+           OutputXmlFile="$(DropsPath)\NUnitOutput.xml" />
+  </Target>
+
+</Project>

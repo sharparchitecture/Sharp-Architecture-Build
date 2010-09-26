@@ -30,7 +30,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Tools\NUnit.2.5.7\addins\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="BuildSystem.proj" />
     <None Include="Properties\Build.properties">
@@ -42,6 +44,7 @@
     <None Include="Targets\BuildSolutions.target" />
     <None Include="Targets\BuildSuccess.target" />
     <None Include="Targets\CleanSolution.target" />
+    <None Include="Targets\RunNUnitTests.target" />
     <None Include="Targets\Merge.target" />
     <None Include="Targets\CreateDrops.target" />
     <None Include="Targets\Package.target" />
@@ -53,6 +56,19 @@
     <None Include="Tasks\Microsoft.Sdc.Common.tasks" />
     <None Include="Tasks\MSBuild.Community.tasks" />
     <None Include="Tasks\MSBuild.Extended.tasks" />
+    <None Include="Tools\NUnit.2.5.7\agent.conf" />
+    <None Include="Tools\NUnit.2.5.7\nunit-agent-x86.exe.config" />
+    <None Include="Tools\NUnit.2.5.7\nunit-agent.exe.config" />
+    <None Include="Tools\NUnit.2.5.7\nunit-console-x86.exe.config" />
+    <None Include="Tools\NUnit.2.5.7\nunit-console.exe.config" />
+    <None Include="Tools\NUnit.2.5.7\nunit-x86.exe.config" />
+    <None Include="Tools\NUnit.2.5.7\nunit.exe.config" />
+    <None Include="Tools\NUnit.2.5.7\NUnitTests.config" />
+    <None Include="Tools\NUnit.2.5.7\NUnitTests.nunit" />
+    <None Include="Tools\NUnit.2.5.7\pnunit-agent.exe.config" />
+    <None Include="Tools\NUnit.2.5.7\pnunit-launcher.exe.config" />
+    <None Include="Tools\NUnit.2.5.7\runFile.exe.config" />
+    <None Include="Tools\NUnit.2.5.7\test.conf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Tasks\ICSharpCode.SharpZipLib.dll" />
@@ -60,6 +76,51 @@
     <Content Include="Tasks\MSBuild.Community.Tasks.dll" />
     <Content Include="Tasks\MSBuild.Extended.Tasks.dll" />
     <Content Include="Tools\ILMerge.exe" />
+    <Content Include="Tools\NUnit.2.5.7\framework\nunit.framework.dll" />
+    <Content Include="Tools\NUnit.2.5.7\framework\nunit.framework.xml" />
+    <Content Include="Tools\NUnit.2.5.7\framework\nunit.mocks.dll" />
+    <Content Include="Tools\NUnit.2.5.7\framework\pnunit.framework.dll" />
+    <Content Include="Tools\NUnit.2.5.7\lib\failure.png" />
+    <Content Include="Tools\NUnit.2.5.7\lib\fit.dll" />
+    <Content Include="Tools\NUnit.2.5.7\lib\ignored.png" />
+    <Content Include="Tools\NUnit.2.5.7\lib\inconclusive.png" />
+    <Content Include="Tools\NUnit.2.5.7\lib\log4net.dll" />
+    <Content Include="Tools\NUnit.2.5.7\lib\nunit-console-runner.dll" />
+    <Content Include="Tools\NUnit.2.5.7\lib\nunit-gui-runner.dll" />
+    <Content Include="Tools\NUnit.2.5.7\lib\nunit.core.dll" />
+    <Content Include="Tools\NUnit.2.5.7\lib\nunit.core.interfaces.dll" />
+    <Content Include="Tools\NUnit.2.5.7\lib\nunit.fixtures.dll" />
+    <Content Include="Tools\NUnit.2.5.7\lib\nunit.uiexception.dll" />
+    <Content Include="Tools\NUnit.2.5.7\lib\nunit.uikit.dll" />
+    <Content Include="Tools\NUnit.2.5.7\lib\nunit.util.dll" />
+    <Content Include="Tools\NUnit.2.5.7\lib\skipped.png" />
+    <Content Include="Tools\NUnit.2.5.7\lib\success.png" />
+    <Content Include="Tools\NUnit.2.5.7\nunit-agent-x86.exe" />
+    <Content Include="Tools\NUnit.2.5.7\nunit-agent.exe" />
+    <Content Include="Tools\NUnit.2.5.7\nunit-console-x86.exe" />
+    <Content Include="Tools\NUnit.2.5.7\nunit-console.exe" />
+    <Content Include="Tools\NUnit.2.5.7\nunit-x86.exe" />
+    <Content Include="Tools\NUnit.2.5.7\nunit.exe" />
+    <Content Include="Tools\NUnit.2.5.7\NUnitFitTests.html" />
+    <Content Include="Tools\NUnit.2.5.7\pnunit-agent.exe" />
+    <Content Include="Tools\NUnit.2.5.7\pnunit-launcher.exe" />
+    <Content Include="Tools\NUnit.2.5.7\runFile.exe" />
+    <Content Include="Tools\NUnit.2.5.7\tests\loadtest-assembly.dll" />
+    <Content Include="Tools\NUnit.2.5.7\tests\mock-assembly.dll" />
+    <Content Include="Tools\NUnit.2.5.7\tests\nonamespace-assembly.dll" />
+    <Content Include="Tools\NUnit.2.5.7\tests\nunit-console.tests.dll" />
+    <Content Include="Tools\NUnit.2.5.7\tests\nunit-gui.tests.dll" />
+    <Content Include="Tools\NUnit.2.5.7\tests\nunit.core.tests.dll" />
+    <Content Include="Tools\NUnit.2.5.7\tests\nunit.fixtures.tests.dll" />
+    <Content Include="Tools\NUnit.2.5.7\tests\nunit.framework.dll" />
+    <Content Include="Tools\NUnit.2.5.7\tests\nunit.framework.tests.dll" />
+    <Content Include="Tools\NUnit.2.5.7\tests\nunit.mocks.tests.dll" />
+    <Content Include="Tools\NUnit.2.5.7\tests\nunit.uiexception.tests.dll" />
+    <Content Include="Tools\NUnit.2.5.7\tests\nunit.uikit.tests.dll" />
+    <Content Include="Tools\NUnit.2.5.7\tests\nunit.util.tests.dll" />
+    <Content Include="Tools\NUnit.2.5.7\tests\test-assembly.dll" />
+    <Content Include="Tools\NUnit.2.5.7\tests\test-utilities.dll" />
+    <Content Include="Tools\NUnit.2.5.7\tests\timing-tests.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
