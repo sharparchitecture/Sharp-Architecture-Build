@@ -31,7 +31,7 @@
     <MakeDir Directories="$(SpecificationReportPath)"/>
     
     <PropertyGroup>
-      <MSpecOptions>$(MSpecOutputType) "$(SpecificationReportPath)\Specs.html"</MSpecOptions>
+      <MSpecOptions>$(MSpecOutputType) --silent "$(SpecificationReportPath)\Specs.html"</MSpecOptions>
       <MSpecArgs>$(MSpecSpecificationAssemblies)</MSpecArgs>
       <MSpecCommand>"$(ReferencedAssembliesPath)\Machine.Specifications\mspec.exe" $(MSpecOptions) $(MSpecArgs)</MSpecCommand>
     </PropertyGroup>
