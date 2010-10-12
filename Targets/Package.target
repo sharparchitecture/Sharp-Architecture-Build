@@ -7,9 +7,8 @@
 
     <Zip ZipFileName="%(PackageName)"
          Files="@(PackageFiles)"
-         WorkingDirectory="$(MSBuildProjectDirectory)"
-         Flatten ="false"
-         ZipLevel="10"/>
+         WorkingDirectory="%(WorkingDirectory)"
+         Flatten ="false" />
 
 	  <Message Text="##teamcity[publishArtifacts '%(PackageFiles.PackageName)']"  />
 	  
