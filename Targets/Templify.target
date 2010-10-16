@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="All">
+
+  <Target Name="Templify">
+
+    <Message Text="Templifying with:  Author=$(TemplifyPackageAuthor)
+  Name=$(TemplifyPackageName)
+  PackageRepositoryPath=$(DropsPath)\$(GlobalBuildVersionNumber)
+  Path=$(SolutionsPath)
+  Tokens=@(TemplifyTokens)
+  Version=$(GlobalBuildVersionNumber)" />
+    
+    <CreatePackage Author="$(TemplifyPackageAuthor)"
+                   Name="$(TemplifyPackageName)"
+                   PackageRepositoryPath="$(DropsPath)\$(GlobalBuildVersionNumber)"
+                   Path="$(SolutionsPath)"
+                   Tokens="@(TemplifyTokens)"
+                   Version="$(GlobalBuildVersionNumber)" />
+
+    <Message Text="##teamcity[publishArtifacts '$(TemplifyPackageRepositoryPath)\*.pkg']"  />
+
+  </Target>
+
+</Project>
