@@ -17,8 +17,6 @@
   Tokens=@(TemplifyTokens)
   Version=$(GlobalBuildVersionNumber)" />
 
-    <Sleep SleepTimeout="10000" />
-
     <MakeDir Directories="$(TemplifyWorkingPath)" />
     
     <CreatePackage Author="$(TemplifyPackageAuthor)"
