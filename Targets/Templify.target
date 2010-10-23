@@ -25,7 +25,8 @@
                    PackageRepositoryWorkingPath="$(TemplifyWorkingPath)"
                    Path="$(SolutionsPath)"
                    Tokens="@(TemplifyTokens)"
-                   Version="$(GlobalBuildVersionNumber)" />
+                   Version="$(GlobalBuildVersionNumber)" 
+                   ContinueOnError="true" />
 
     <Message Text="##teamcity[publishArtifacts '$(DropsPath)\$(GlobalBuildVersionNumber)\*.pkg']"  />
 
