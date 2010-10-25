@@ -139,7 +139,7 @@
   <UsingTask AssemblyFile="$(TasksPath)\Microsoft.Sdc.Tasks.dll" TaskName="Microsoft.Sdc.Tasks.Tools.Installshield"/>
   <UsingTask AssemblyFile="$(TasksPath)\Microsoft.Sdc.Tasks.dll" TaskName="Microsoft.Sdc.Tasks.Tools.MsTest"/>
   <UsingTask AssemblyFile="$(TasksPath)\Microsoft.Sdc.Tasks.dll" TaskName="Microsoft.Sdc.Tasks.Tools.Ndoc"/>
-  <UsingTask AssemblyFile="$(TasksPath)\Microsoft.Sdc.Tasks.dll" TaskName="Microsoft.Sdc.Tasks.Tools.Nunit"/>
+<!--  <UsingTask AssemblyFile="$(TasksPath)\Microsoft.Sdc.Tasks.dll" TaskName="Microsoft.Sdc.Tasks.Tools.Nunit"/> -->
   <UsingTask AssemblyFile="$(TasksPath)\Microsoft.Sdc.Tasks.dll" TaskName="Microsoft.Sdc.Tasks.Tools.PreSharp"/>
   <UsingTask AssemblyFile="$(TasksPath)\Microsoft.Sdc.Tasks.dll" TaskName="Microsoft.Sdc.Tasks.Tools.PsExec"/>
   <UsingTask AssemblyFile="$(TasksPath)\Microsoft.Sdc.Tasks.dll" TaskName="Microsoft.Sdc.Tasks.Tools.SandcastleBuilder"/>
