@@ -32,9 +32,8 @@
     
     <PropertyGroup>
       <MSpecOptions>--silent $(MSpecOutputType) "$(SpecificationReportPath)\Specs.html"</MSpecOptions>
-	  <MSpecRunner Condition="'$(MspecRunner)' == ''">mspec.exe</MSpecRunner>
       <MSpecArgs>$(MSpecSpecificationAssemblies)</MSpecArgs>
-      <MSpecCommand>"$(ReferencedAssembliesPath)\Machine.Specifications\$(MSpecRunner)" $(MSpecOptions) $(MSpecArgs)</MSpecCommand>
+      <MSpecCommand>"$(ReferencedAssembliesPath)\Machine.Specifications\mspec-clr4.exe" $(MSpecOptions) $(MSpecArgs)</MSpecCommand>
     </PropertyGroup>
     
     <Message Importance="high" Text="Running Specs with this command: $(MSpecCommand)"/>
