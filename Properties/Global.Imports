@@ -24,5 +24,6 @@
   <Import Project="$(TargetsPath)\RunMSpecSpecifications.target" />
   <Import Project="$(TargetsPath)\RunNUnitTests.target" />
   <Import Project="$(TargetsPath)\UpdateAssemblyVersion.target" />
+  <Import Project="$(TargetsPath)\Nuget.target" />
 
 </Project>
