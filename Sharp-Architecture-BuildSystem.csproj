@@ -41,6 +41,11 @@
     <None Include="Properties\Common.properties" />
     <None Include="Properties\CPUArchitecture.properties" />
     <None Include="Properties\Global.Imports" />
+    <None Include="SampleBuild\Build.cmd" />
+    <None Include="SampleBuild\Build.proj" />
+    <None Include="SampleBuild\BuildAndPackage.cmd" />
+    <None Include="SampleBuild\BuildAndTest.cmd" />
+    <None Include="SampleBuild\README" />
     <None Include="Targets\BuildSolutions.target" />
     <None Include="Targets\BuildSuccess.target" />
     <None Include="Targets\CleanSolution.target" />
