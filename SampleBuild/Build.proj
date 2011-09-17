@@ -21,7 +21,6 @@
     <WebAppPath>$(SolutionsPath)\$(SolutionName).Web.Mvc</WebAppPath>
     <SolutionRoot>$(BuildPath)\..\..</SolutionRoot>
     <DropsPath>\..\Drops\</DropsPath>
-      <Flatten>True</Flatten>
   </PropertyGroup>
   
     
@@ -43,7 +42,7 @@
 
       <PackageName>$(DropsPath)\$(GlobalBuildVersionNumber)\$(PackageName).v$(GlobalBuildVersionNumber).zip</PackageName>
       <WorkingDirectory>$(WebAppPath)</WorkingDirectory>
-      <flatten>true</flatten>
+      <flatten>False</flatten>
     </PackageFiles>
 
     <PackageFiles Include="$(WebAppPath)\**\*.*"
@@ -52,14 +51,14 @@
                                   $(WebAppPath)\**\obj\**;">
       <PackageName>$(DropsPath)\$(GlobalBuildVersionNumber)\$(PackageName).Source.v$(GlobalBuildVersionNumber).zip</PackageName>
       <WorkingDirectory>$(WebAppPath)</WorkingDirectory>
-      <flatten>true</flatten>
+      <flatten>False</flatten>
     </PackageFiles>
 
 
    <PackageFiles Include="$(SpecificationReportPath)\**\*.*">
       <PackageName>$(DropsPath)\$(GlobalBuildVersionNumber)\$(PackageName).Specifications.v$(GlobalBuildVersionNumber).zip</PackageName>
       <WorkingDirectory>$(SpecificationReportPath)</WorkingDirectory>
-      <flatten>true</flatten>
+      <flatten>False</flatten>
     </PackageFiles>    
 
 
