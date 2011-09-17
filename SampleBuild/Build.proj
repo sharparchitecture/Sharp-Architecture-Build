@@ -11,12 +11,13 @@
   <PropertyGroup>
       <SolutionName>My Project Name</SolutionName>
       <PackageName>My Project Name</PackageName>      
+      <!-- This should be the directory where you have added https://github.com/sharparchitecture/Sharp-Architecture-Build -->
+      <BuildPath>$(MSBuildProjectDirectory)\..\BuildSystem</BuildPath>
   </PropertyGroup>
   <!-- *********************  End please populate here *************************  -->
     
   <PropertyGroup>
     <SolutionsPath>$(MSBuildProjectDirectory)\..\Solutions</SolutionsPath>
-    <BuildPath>$(MSBuildProjectDirectory)\..\BuildSystem</BuildPath>
     <WebAppPath>$(SolutionsPath)\$(SolutionName).Web.Mvc</WebAppPath>
     <SolutionRoot>$(BuildPath)\..\..</SolutionRoot>
     <DropsPath>\..\Drops\</DropsPath>
@@ -42,6 +43,7 @@
 
       <PackageName>$(DropsPath)\$(GlobalBuildVersionNumber)\$(PackageName).v$(GlobalBuildVersionNumber).zip</PackageName>
       <WorkingDirectory>$(WebAppPath)</WorkingDirectory>
+      <flatten>true</flatten>
     </PackageFiles>
 
     <PackageFiles Include="$(WebAppPath)\**\*.*"
@@ -50,12 +52,14 @@
                                   $(WebAppPath)\**\obj\**;">
       <PackageName>$(DropsPath)\$(GlobalBuildVersionNumber)\$(PackageName).Source.v$(GlobalBuildVersionNumber).zip</PackageName>
       <WorkingDirectory>$(WebAppPath)</WorkingDirectory>
+      <flatten>true</flatten>
     </PackageFiles>
 
 
    <PackageFiles Include="$(SpecificationReportPath)\**\*.*">
       <PackageName>$(DropsPath)\$(GlobalBuildVersionNumber)\$(PackageName).Specifications.v$(GlobalBuildVersionNumber).zip</PackageName>
       <WorkingDirectory>$(SpecificationReportPath)</WorkingDirectory>
+      <flatten>true</flatten>
     </PackageFiles>    
 
 
@@ -78,7 +82,6 @@
   <Target Name="PackageArtefacts"
           DependsOnTargets="RunSpecs;
                             Package;
-			                      Deploy;
                             BuildSuccess" />
 
 
