@@ -11,12 +11,13 @@
   <PropertyGroup>
       <SolutionName>My Project Name</SolutionName>
       <PackageName>My Project Name</PackageName>      
+      <!-- This should be the directory where you have added https://github.com/sharparchitecture/Sharp-Architecture-Build -->
+      <BuildPath>$(MSBuildProjectDirectory)\..\BuildSystem</BuildPath>
   </PropertyGroup>
   <!-- *********************  End please populate here *************************  -->
     
   <PropertyGroup>
     <SolutionsPath>$(MSBuildProjectDirectory)\..\Solutions</SolutionsPath>
-    <BuildPath>$(MSBuildProjectDirectory)\..\BuildSystem</BuildPath>
     <WebAppPath>$(SolutionsPath)\$(SolutionName).Web.Mvc</WebAppPath>
     <SolutionRoot>$(BuildPath)\..\..</SolutionRoot>
     <DropsPath>\..\Drops\</DropsPath>
