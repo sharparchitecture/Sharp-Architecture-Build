@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="PackageArtefacts" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+
+  <PropertyGroup>
+    <RunMSpecTests>True</RunMSpecTests>
+    <MSpecSpecificationAssemblies>"$(MSBuildProjectDirectory)\..\Solutions\MSpecTests.restaurantBooker\Bin\Release\MSpecTests.restaurantBooker.dll"</MSpecSpecificationAssemblies>
+  </PropertyGroup>
+
+  <!-- *********************   Please populate here *************************  -->
+  <PropertyGroup>
+      <SolutionName>My Project Name</SolutionName>
+      <PackageName>My Project Name</PackageName>      
+      <!-- This should be the directory where you have added https://github.com/sharparchitecture/Sharp-Architecture-Build -->
+      <BuildPath>$(MSBuildProjectDirectory)\..\BuildSystem</BuildPath>
+  </PropertyGroup>
+  <!-- *********************  End please populate here *************************  -->
+    
+  <PropertyGroup>
+    <SolutionsPath>$(MSBuildProjectDirectory)\..\Solutions</SolutionsPath>
+    <WebAppPath>$(SolutionsPath)\$(SolutionName).Web.Mvc</WebAppPath>
+    <SolutionRoot>$(BuildPath)\..\..</SolutionRoot>
+    <DropsPath>\..\Drops\</DropsPath>
+  </PropertyGroup>
+  
+    
+    
+  <ItemGroup>
+    <PackageFiles Include="$(WebAppPath)\**\*.*"
+                  Exclude="$(WebAppPath)\**\*.cs;
+                             $(WebAppPath)\**\*.csproj;
+                             $(WebAppPath)\**\*.user;
+                             $(WebAppPath)\**\*.vspscc;
+                             $(WebAppPath)\**\bin\*.pdb;
+                             $(WebAppPath)\**\*.xml;
+                             $(WebAppPath)\**\Code\**;
+                             $(WebAppPath)\**\Initialisers\**;
+                             $(WebAppPath)\**\obj\**;
+                             $(WebAppPath)\**\Properties\**;
+                             $(WebAppPath)\**\Registrars\**;
+                             $(WebAppPath)\**\ResourceFiles\**;">
+
+      <PackageName>$(DropsPath)\$(GlobalBuildVersionNumber)\$(PackageName).v$(GlobalBuildVersionNumber).zip</PackageName>
+      <WorkingDirectory>$(WebAppPath)</WorkingDirectory>
+      <flatten>False</flatten>
+    </PackageFiles>
+
+    <PackageFiles Include="$(WebAppPath)\**\*.*"
+                       Exclude="$(WebAppPath)\**\bin\**;
+                                  $(WebAppPath)\**\Logs\**;
+                                  $(WebAppPath)\**\obj\**;">
+      <PackageName>$(DropsPath)\$(GlobalBuildVersionNumber)\$(PackageName).Source.v$(GlobalBuildVersionNumber).zip</PackageName>
+      <WorkingDirectory>$(WebAppPath)</WorkingDirectory>
+      <flatten>False</flatten>
+    </PackageFiles>
+
+
+   <PackageFiles Include="$(SpecificationReportPath)\**\*.*">
+      <PackageName>$(DropsPath)\$(GlobalBuildVersionNumber)\$(PackageName).Specifications.v$(GlobalBuildVersionNumber).zip</PackageName>
+      <WorkingDirectory>$(SpecificationReportPath)</WorkingDirectory>
+      <flatten>False</flatten>
+    </PackageFiles>    
+
+
+  </ItemGroup>
+
+
+  <Import Project="$(BuildPath)\BuildSystem.proj" />
+
+
+
+  <Target Name="Build"
+        DependsOnTargets="CleanSolution;
+                            UpdateAssemblyVersion;
+                            BuildSolutions;" />
+
+  <Target Name="RunSpecs"
+      DependsOnTargets="Build;
+                        RunMSpecSpecifications;" />
+
+  <Target Name="PackageArtefacts"
+          DependsOnTargets="RunSpecs;
+                            Package;
+                            BuildSuccess" />
+
+
+
+
+
+
+</Project>
