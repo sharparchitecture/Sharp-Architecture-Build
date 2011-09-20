@@ -1,0 +1,11 @@
+﻿This folder contains sample build script to get your solution building.  Please do the following:
+
+1. Copy this folder(SampleBuild) to the root of your project.
+2. Edit Build.proj and populate the section marked populate
+3. In the project root create a folder called Drops
+4. Run BuildAndPackage
+5. If all goes to plan, you should see 3 zip files in the Drops folder.
+
+
+Please note that the basis of this sample was stolen from https://github.com/sharparchitecture/Who-Can-Help-Me
+
