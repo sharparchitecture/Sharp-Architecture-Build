@@ -18,8 +18,10 @@
       XmlFileName="$(NugetWorkspace)\%(NugetPackage.PackageName)\%(NugetPackage.NuspecFile)"
       XPath="//*/*/nu:version"
       Value="$(GlobalBuildVersionNumber)" />
-
-    <Exec WorkingDirectory="$(DropsPath)\" 
-          Command="$(ToolsPath)\nuget.exe pack $(NugetWorkspace)\%(NugetPackage.PackageName)\%(NugetPackage.NuspecFile)" />		  
+	  
+    <Exec WorkingDirectory="$(DropsPath)\$(GlobalBuildVersionNumber)\" 
+          Command="$(ToolsPath)\nuget.exe pack $(NugetWorkspace)\%(NugetPackage.PackageName)\%(NugetPackage.NuspecFile)" />
+		  
+    <Message Text="##teamcity[publishArtifacts '$(DropsPath)\$(GlobalBuildVersionNumber)\%(NugetPackage.PackageName).$(GlobalBuildVersionNumber).nupkg']"  />
   </Target>
 </Project>
