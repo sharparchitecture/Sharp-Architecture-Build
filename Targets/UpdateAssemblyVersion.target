@@ -4,9 +4,9 @@
   <Target Name="UpdateAssemblyVersion">
     <MSBuild.Community.tasks.AssemblyInfo OutputFile="$(AssemblyVersionFile)"
                   CodeLanguage="C#"
-                  AssemblyFileVersion="$(GlobalBuildVersionNumber)"
-                  AssemblyInformationalVersion="$(GlobalBuildVersionNumber)"
-                  AssemblyVersion="$(GlobalBuildVersionNumber)" />
+                  AssemblyFileVersion="$(VersionMajor).$(VersionMinor).$(VersionPatch).$(VersionBuild)"
+                  AssemblyInformationalVersion="$(SemanticVersion)"
+                  AssemblyVersion="$(VersionMajor).$(VersionMinor).0.0" />
   </Target>
 
 </Project>

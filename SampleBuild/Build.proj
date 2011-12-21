@@ -40,7 +40,7 @@
                              $(WebAppPath)\**\Registrars\**;
                              $(WebAppPath)\**\ResourceFiles\**;">
 
-      <PackageName>$(DropsPath)\$(GlobalBuildVersionNumber)\$(PackageName).v$(GlobalBuildVersionNumber).zip</PackageName>
+      <PackageName>$(DropsPath)\$(SemanticVersion)\$(PackageName).v$(SemanticVersion).zip</PackageName>
       <WorkingDirectory>$(WebAppPath)</WorkingDirectory>
       <flatten>False</flatten>
     </PackageFiles>
@@ -49,14 +49,14 @@
                        Exclude="$(WebAppPath)\**\bin\**;
                                   $(WebAppPath)\**\Logs\**;
                                   $(WebAppPath)\**\obj\**;">
-      <PackageName>$(DropsPath)\$(GlobalBuildVersionNumber)\$(PackageName).Source.v$(GlobalBuildVersionNumber).zip</PackageName>
+      <PackageName>$(DropsPath)\$(SemanticVersion)\$(PackageName).Source.v$(SemanticVersion).zip</PackageName>
       <WorkingDirectory>$(WebAppPath)</WorkingDirectory>
       <flatten>False</flatten>
     </PackageFiles>
 
 
    <PackageFiles Include="$(SpecificationReportPath)\**\*.*">
-      <PackageName>$(DropsPath)\$(GlobalBuildVersionNumber)\$(PackageName).Specifications.v$(GlobalBuildVersionNumber).zip</PackageName>
+      <PackageName>$(DropsPath)\$(SemanticVersion)\$(PackageName).Specifications.v$(SemanticVersion).zip</PackageName>
       <WorkingDirectory>$(SpecificationReportPath)</WorkingDirectory>
       <flatten>False</flatten>
     </PackageFiles>    

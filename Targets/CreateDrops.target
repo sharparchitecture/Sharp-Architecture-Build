@@ -4,7 +4,7 @@
 
   <Target Name="CreateDrops">
 
-    <MakeDir Directories="$(DropsPath)\$(GlobalBuildVersionNumber)\"/>
+    <MakeDir Directories="$(DropsPath)\$(SemanticVersion)\"/>
     
   </Target>
 
