@@ -3,7 +3,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="All">
 
   <PropertyGroup>
-    <TemplifyWorkingPath>$(DropsPath)\Temp$(GlobalBuildVersionNumber)</TemplifyWorkingPath>
+    <TemplifyWorkingPath>$(DropsPath)\Temp$(SemanticVersion)</TemplifyWorkingPath>
   </PropertyGroup>
   
   <Target Name="Templify">
@@ -11,24 +11,24 @@
     <Message Text="Templifying with:
   Author=$(TemplifyPackageAuthor)
   Name=$(TemplifyPackageName)
-  PackageRepositoryPath=$(DropsPath)\$(GlobalBuildVersionNumber)
+  PackageRepositoryPath=$(DropsPath)\$(SemanticVersion)
   PackageRepositoryWorkingPath=$(TemplifyWorkingPath)
   Path=$(SolutionsPath)
   Tokens=@(TemplifyTokens)
-  Version=$(GlobalBuildVersionNumber)" />
+  Version=$(SemanticVersion)" />
 
     <MakeDir Directories="$(TemplifyWorkingPath)" />
     
     <CreatePackage Author="$(TemplifyPackageAuthor)"
                    Name="$(TemplifyPackageName)"
-                   PackageRepositoryPath="$(DropsPath)\$(GlobalBuildVersionNumber)"
+                   PackageRepositoryPath="$(DropsPath)\$(SemanticVersion)"
                    PackageRepositoryWorkingPath="$(TemplifyWorkingPath)"
                    Path="$(SolutionsPath)"
                    Tokens="@(TemplifyTokens)"
-                   Version="$(GlobalBuildVersionNumber)" 
+                   Version="$(SemanticVersion)" 
                    ContinueOnError="true" />
 
-    <Message Text="##teamcity[publishArtifacts '$(DropsPath)\$(GlobalBuildVersionNumber)\*.pkg']"  />
+    <Message Text="##teamcity[publishArtifacts '$(DropsPath)\$(SemanticVersion)\*.pkg']"  />
 
     <RemoveDir Directories="$(TemplifyWorkingPath)" />
     
