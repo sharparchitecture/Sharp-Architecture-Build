@@ -33,7 +33,7 @@
     <PropertyGroup>
       <MSpecOptions>--silent $(MSpecOutputType) "$(SpecificationReportPath)\Specs.html"</MSpecOptions>
       <MSpecArgs>$(MSpecSpecificationAssemblies)</MSpecArgs>
-      <MSpecCommand>"$(ReferencedAssembliesPath)\Machine.Specifications\mspec-clr4.exe" $(MSpecOptions) $(MSpecArgs)</MSpecCommand>
+      <MSpecCommand>"$(ToolsPath)\Machine.Specifications.0.5.2\mspec-clr4.exe" $(MSpecOptions) $(MSpecArgs)</MSpecCommand>
     </PropertyGroup>
     
     <Message Importance="high" Text="Running Specs with this command: $(MSpecCommand)"/>
