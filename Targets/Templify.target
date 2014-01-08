@@ -13,7 +13,7 @@
   Name=$(TemplifyPackageName)
   PackageRepositoryPath=$(DropsPath)\$(SemanticVersion)
   PackageRepositoryWorkingPath=$(TemplifyWorkingPath)
-  Path=$(SolutionsPath)
+  Path=$(TemplifyPath)
   Tokens=@(TemplifyTokens)
   Version=$(SemanticVersion)" />
 
@@ -23,7 +23,7 @@
                    Name="$(TemplifyPackageName)"
                    PackageRepositoryPath="$(DropsPath)\$(SemanticVersion)"
                    PackageRepositoryWorkingPath="$(TemplifyWorkingPath)"
-                   Path="$(SolutionsPath)"
+                   Path="$(TemplifyPath)"
                    Tokens="@(TemplifyTokens)"
                    Version="$(SemanticVersion)" 
                    ContinueOnError="true" />
