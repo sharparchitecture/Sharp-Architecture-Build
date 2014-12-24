@@ -7,13 +7,9 @@
 	<ItemGroup>    
 		<NugetTemplatesFiles Include="$(NugetTemplates)\**\*.*" />
 	</ItemGroup>
-	<PropertyGroup>
-		<NugetLibFrameworkVersion Condition="'$(NugetLibFrameworkVersion)' == ''">NET45</NugetLibFrameworkVersion>
-	</PropertyGroup>
-
 	<Copy SourceFiles="@(NugetTemplatesFiles)" DestinationFiles="@(NugetTemplatesFiles->'$(NugetWorkspace)\%(RecursiveDir)%(Filename)%(Extension)')" />
  
-	<Copy SourceFiles="@(NugetPackage)" DestinationFolder="$(NugetWorkspace)\%(PackageName)\lib\$(NugetLibFrameworkVerion)\" />
+	<Copy SourceFiles="@(NugetPackage)" DestinationFolder="$(NugetWorkspace)\%(PackageName)\lib\$(NugetLibFrameworkVersion)\" />
 	
 	<XmlUpdate      
 	  Prefix="nu"
