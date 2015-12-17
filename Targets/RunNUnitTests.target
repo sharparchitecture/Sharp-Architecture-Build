@@ -1,17 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="All">
-
-  <Target Name="RunNUnitTests"
-          DependsOnTargets="CreateDrops">
-	
-	<MakeDir Directories="$(NUnitResultsPath)"/>
-	
+  <Target Name="CreateNUnitResultsDir">
+    <MakeDir Directories="$(NUnitResultsPath)" />
+  </Target>
+  
+  <Target Name="RunNUnit3Tests" Condition="'$(UseNUnit3)'=='true'">
+    <PropertyGroup>
+        <TeamCityOutput Condition="'$(IsDesktopBuild)'!='true'">--teamcity</TeamCityOutput>
+    </PropertyGroup>
+    <Exec 
+       Command="$(ToolsPath)\NUnit3\nunit3-console.exe @(AssembliesToTestWithNUnit) $(TeamCityOutput) --dispose-runners --noheader --result:&quot;$(NUnitResultsPath)\NUnitOutput.xml&quot;;format=nunit3"
+       WorkingDirectory="%(AssembliesToTestWithNUnit.RootDir)\%(AssembliesToTestWithNUnit.Directory)"
+    />
+  </Target>
+  
+  <Target Name="RunNUnit2Tests" Condition="'$(UseNUnit3)'!='true'">
     <NUnit Assemblies="@(AssembliesToTestWithNUnit)" 
            ToolPath="$(ToolsPath)\NUnit.Runners.2.6.4\"
            OutputXmlFile="$(NUnitResultsPath)\NUnitOutput.xml" />
 
     <Message Text="##teamcity[importData type='nunit' path='$(NUnitResultsPath)\NUnitOutput.xml']"  />	
+  </Target>
+  
+  <Target Name="RunNUnitTests"
+          DependsOnTargets="CreateDrops;CreateNUnitResultsDir;RunNUnit2Tests;RunNUnit3Tests">
   </Target>
 
 </Project>
