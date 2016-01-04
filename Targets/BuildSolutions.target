@@ -16,7 +16,7 @@
 
     <MSBuild 
       Projects="@(SolutionsToBuild)" 
-      Properties="$(ForcedMSBuildProperties);BuildNumber=$(VersionBuild)" />
+      Properties="$(ForcedMSBuildProperties);BuildNumber=$(VersionBuild);$(HardLinksOptions)" />
 
   </Target>
 
