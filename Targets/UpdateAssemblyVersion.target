@@ -8,7 +8,7 @@
                   AssemblyInformationalVersion="$(SemanticVersion)"
                   AssemblyVersion="$(VersionMajor).$(VersionMinor).0.0" />
 				  	
-    <Message Text="##teamcity[buildNumber '$(SemanticVersion)']"  />
+    <Message Text="##teamcity[buildNumber '$(SemanticVersion)']" Condition="'$(OverrideTeamCityBuildNumber)' == 'true'" />
   </Target>
 
 </Project>
