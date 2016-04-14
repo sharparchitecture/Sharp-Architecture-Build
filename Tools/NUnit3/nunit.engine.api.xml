@@ -383,6 +383,49 @@
             </summary>
             <param name="force">If true, cancel any ongoing test threads, otherwise wait for them to complete.</param>
         </member>
+        <member name="T:NUnit.Engine.IRuntimeFramework">
+            <summary>
+            Interface implemented by objects representing a runtime framework.
+            </summary>
+        </member>
+        <member name="P:NUnit.Engine.IRuntimeFramework.Id">
+            <summary>
+            Gets the inique Id for this runtime, such as "net-4.5"
+            </summary>
+        </member>
+        <member name="P:NUnit.Engine.IRuntimeFramework.DisplayName">
+            <summary>
+            Gets the display name of the framework, such as ".NET 4.5"
+            </summary>
+        </member>
+        <member name="P:NUnit.Engine.IRuntimeFramework.FrameworkVersion">
+            <summary>
+            Gets the framework version: usually contains two components, Major
+            and Minor, which match the corresponding CLR components, but not always.
+            </summary>
+        </member>
+        <member name="P:NUnit.Engine.IRuntimeFramework.ClrVersion">
+            <summary>
+            Gets the Version of the CLR for this framework
+            </summary>
+        </member>
+        <member name="P:NUnit.Engine.IRuntimeFramework.Profile">
+            <summary>
+            Gets a string representing the particular profile installed,
+            or null if there is no profile. Currently. the only defined 
+            values are Full and Client.
+            </summary>
+        </member>
+        <member name="T:NUnit.Engine.IAvailableRuntimes">
+            <summary>
+            Interface that returns a list of available runtime frameworks.
+            </summary>
+        </member>
+        <member name="P:NUnit.Engine.IAvailableRuntimes.AvailableRuntimes">
+            <summary>
+            Gets a list of available runtime frameworks.
+            </summary>
+        </member>
         <member name="T:NUnit.Engine.IResultService">
             <summary>
             IResultWriterService provides result writers for a specified
