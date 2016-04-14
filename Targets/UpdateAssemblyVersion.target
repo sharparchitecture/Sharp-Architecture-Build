@@ -3,11 +3,12 @@
 
   <Target Name="UpdateAssemblyVersion">
     <MSBuild.Community.tasks.AssemblyInfo OutputFile="$(AssemblyVersionFile)"
-                  CodeLanguage="C#"
-                  AssemblyFileVersion="$(VersionMajor).$(VersionMinor).$(VersionPatch).$(VersionBuild)"
-                  AssemblyInformationalVersion="$(SemanticVersion)"
-                  AssemblyVersion="$(VersionMajor).$(VersionMinor).0.0" />
-				  	
+      CodeLanguage="C#"
+      AssemblyFileVersion="$(VersionMajor).$(VersionMinor).$(VersionPatch).$(VersionBuild)"
+      AssemblyInformationalVersion="$(SemanticVersion)"
+      AssemblyVersion="$(VersionMajor).$(VersionMinor).0.0"
+      />
+
     <Message Text="##teamcity[buildNumber '$(SemanticVersion)']" Condition="'$(OverrideTeamCityBuildNumber)' == 'true'" />
   </Target>
 
