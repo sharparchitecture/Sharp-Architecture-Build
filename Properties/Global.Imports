@@ -11,7 +11,6 @@
   <Import Project="$(TasksPath)\Microsoft.Sdc.Common.tasks" />
   <Import Project="$(TasksPath)\MSBuild.Community.Tasks.Targets" />
   <Import Project="$(TasksPath)\MSBuild.Extended.tasks" />
-  <Import Project="$(TasksPath)\Endjin.Templify.MSBuild.tasks" />
 
   <!-- Import Custom Project Targets -->
   <Import Project="$(TargetsPath)\BuildSolutions.target" />
@@ -20,7 +19,6 @@
   <Import Project="$(TargetsPath)\CreateDrops.target" />
   <Import Project="$(TargetsPath)\Merge.target" />
   <Import Project="$(TargetsPath)\Package.target" />
-  <Import Project="$(TargetsPath)\Templify.target" />
   <Import Project="$(TargetsPath)\RunMSpecSpecifications.target" />
   <Import Project="$(TargetsPath)\RunNUnitTests.target" />
   <Import Project="$(TargetsPath)\UpdateAssemblyVersion.target" />

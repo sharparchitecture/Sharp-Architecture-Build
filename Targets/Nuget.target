@@ -17,7 +17,7 @@
       Namespace="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd"
       XmlFileName="$(NugetWorkspace)\%(NugetPackage.PackageName)\%(NugetPackage.NuspecFile)"
       XPath="//*/*/nu:version"
-      Value="$(SemanticVersion)" />
+      Value="$(NuGetVersion)" />
 
     <!-- update placeholders -->
     <Time>
@@ -34,7 +34,7 @@
       Files="$(NugetWorkspace)\%(NugetPackage.PackageName)\%(NugetPackage.NuspecFile)"
       WarnOnNoUpdate="false"
       Regex="\$\(SemanticVersion\)"
-      ReplacementText="$(SemanticVersion)"
+      ReplacementText="$(NuGetVersion)"
       />
     <FileUpdate
       Files="$(NugetWorkspace)\%(NugetPackage.PackageName)\%(NugetPackage.NuspecFile)"
@@ -46,6 +46,6 @@
       Command="$(ToolsPath)\nuget.exe pack $(NugetWorkspace)\%(NugetPackage.PackageName)\%(NugetPackage.NuspecFile)"
       />
 
-    <Message Text="##teamcity[publishArtifacts '$(DropsPath)\$(SemanticVersion)\%(NugetPackage.PackageName).$(SemanticVersion).nupkg']"  />
+    <Message Text="##teamcity[publishArtifacts '$(DropsPath)\$(SemanticVersion)\%(NugetPackage.PackageName).$(NuGetVersion).nupkg']"  />
   </Target>
 </Project>
