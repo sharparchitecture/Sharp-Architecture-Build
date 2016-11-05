@@ -12,6 +12,8 @@
     <Copy SourceFiles="@(NugetPackage)" DestinationFolder="$(NugetWorkspace)\%(PackageName)\lib\$(NugetLibFrameworkVersion)\" />
 
     <!-- Update package version -->
+	<Message Text="NuGetVersion: $(NugetVersion)" />
+	
     <XmlUpdate
       Prefix="nu"
       Namespace="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd"
