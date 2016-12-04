@@ -14,16 +14,5 @@
       AssemblyVersion="$(VersionMajor).$(VersionMinor).$(VersionPatch).$(VersionBuild)"
       />
   </Target>
-  
-  <Target Name="EnsureAssemblyVersion" DependsOnTargets="DisplayAssemblyVersion" >
-    <MSBuild.Community.tasks.AssemblyInfo
-	  OutputFile="$(AssemblyVersionFile)"
-      CodeLanguage="C#"
-      AssemblyFileVersion="$(VersionMajor).$(VersionMinor).$(VersionPatch).$(VersionBuild)"
-      AssemblyInformationalVersion="$(SemanticVersion)"
-      AssemblyVersion="$(VersionMajor).$(VersionMinor).$(VersionPatch).$(VersionBuild)"
-      />
-  </Target>
-    
 
 </Project>
