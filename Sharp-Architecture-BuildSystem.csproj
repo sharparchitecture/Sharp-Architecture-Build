@@ -39,6 +39,7 @@
     <None Include="Properties\Common.properties" />
     <None Include="Properties\CPUArchitecture.properties" />
     <None Include="Properties\Global.Imports" />
+    <None Include="README" />
     <None Include="SampleBuild\Build.cmd" />
     <None Include="SampleBuild\Build.proj" />
     <None Include="SampleBuild\BuildAndPackage.cmd" />
@@ -47,6 +48,7 @@
     <None Include="Targets\BuildSolutions.target" />
     <None Include="Targets\BuildSuccess.target" />
     <None Include="Targets\CleanSolution.target" />
+    <None Include="Targets\Nuget.target" />
     <None Include="Targets\RunNUnitTests.target" />
     <None Include="Targets\Merge.target" />
     <None Include="Targets\CreateDrops.target" />
@@ -56,11 +58,16 @@
     </None>
     <None Include="Targets\UpdateAssemblyVersion.target" />
     <None Include="Tasks\Microsoft.Sdc.Common.tasks" />
-    <None Include="Tasks\MSBuild.Community.tasks" />
+    <None Include="Tasks\MSBuild.Community.Tasks.Targets" />
+    <None Include="Tasks\MSBuild.Community.Tasks.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Tasks\MSBuild.Extended.tasks" />
     <None Include="Tools\ILMerge.exe.config" />
     <None Include="Tools\Machine.Specifications.Runner.Console.0.9.0\mspec-clr4.exe.config" />
     <None Include="Tools\Machine.Specifications.Runner.Console.0.9.0\mspec-x86-clr4.exe.config" />
+    <None Include="Tools\Machine.Specifications.Runner.Console\mspec-clr4.exe.config" />
+    <None Include="Tools\Machine.Specifications.Runner.Console\mspec-x86-clr4.exe.config" />
     <None Include="Tools\NUnit.Runners.2.6.4\agent.conf" />
     <None Include="Tools\NUnit.Runners.2.6.4\agent.log.conf" />
     <None Include="Tools\NUnit.Runners.2.6.4\launcher.log.conf" />
@@ -74,9 +81,13 @@
     <None Include="Tools\NUnit.Runners.2.6.4\pnunit-launcher.exe.config" />
     <None Include="Tools\NUnit.Runners.2.6.4\runpnunit.bat" />
     <None Include="Tools\NUnit.Runners.2.6.4\test.conf" />
+    <None Include="Tools\NUnit3\addins\nunit.v2.driver.addins" />
+    <None Include="Tools\NUnit3\nunit-agent-x86.exe.config" />
+    <None Include="Tools\NUnit3\nunit-agent.exe.config" />
+    <None Include="Tools\NUnit3\nunit.nuget.addins" />
+    <None Include="Tools\NUnit3\nunit3-console.exe.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Tasks\ICSharpCode.SharpZipLib.dll" />
     <Content Include="Tasks\Microsoft.Sdc.Tasks.dll" />
     <Content Include="Tasks\MSBuild.Community.Tasks.dll" />
     <Content Include="Tasks\MSBuild.Extended.Tasks.dll" />
@@ -91,6 +102,15 @@
     <Content Include="Tools\Machine.Specifications.Runner.Console.0.9.0\mspec-x86.exe" />
     <Content Include="Tools\Machine.Specifications.Runner.Console.0.9.0\mspec.exe" />
     <Content Include="Tools\Machine.Specifications.Runner.Console.0.9.0\Spark.dll" />
+    <Content Include="Tools\Machine.Specifications.Runner.Console\CommandLine.dll" />
+    <Content Include="Tools\Machine.Specifications.Runner.Console\Machine.Specifications.Reporting.dll" />
+    <Content Include="Tools\Machine.Specifications.Runner.Console\Machine.Specifications.Reporting.Templates.dll" />
+    <Content Include="Tools\Machine.Specifications.Runner.Console\Machine.Specifications.Runner.Utility.dll" />
+    <Content Include="Tools\Machine.Specifications.Runner.Console\mspec-clr4.exe" />
+    <Content Include="Tools\Machine.Specifications.Runner.Console\mspec-x86-clr4.exe" />
+    <Content Include="Tools\Machine.Specifications.Runner.Console\mspec-x86.exe" />
+    <Content Include="Tools\Machine.Specifications.Runner.Console\mspec.exe" />
+    <Content Include="Tools\Machine.Specifications.Runner.Console\Spark.dll" />
     <Content Include="Tools\nuget.exe" />
     <Content Include="Tools\NUnit.Runners.2.6.4\lib\Images\Tree\Circles\Failure.jpg" />
     <Content Include="Tools\NUnit.Runners.2.6.4\lib\Images\Tree\Circles\Ignored.jpg" />
@@ -134,6 +154,19 @@
     <Content Include="Tools\NUnit.Runners.2.6.4\pnunit-launcher.exe" />
     <Content Include="Tools\NUnit.Runners.2.6.4\pnunit.framework.dll" />
     <Content Include="Tools\NUnit.Runners.2.6.4\pnunit.tests.dll" />
+    <Content Include="Tools\NUnit3\addins\nunit-project-loader.dll" />
+    <Content Include="Tools\NUnit3\addins\nunit-v2-result-writer.dll" />
+    <Content Include="Tools\NUnit3\addins\nunit.core.dll" />
+    <Content Include="Tools\NUnit3\addins\nunit.core.interfaces.dll" />
+    <Content Include="Tools\NUnit3\addins\nunit.v2.driver.dll" />
+    <Content Include="Tools\NUnit3\addins\teamcity-event-listener.dll" />
+    <Content Include="Tools\NUnit3\addins\vs-project-loader.dll" />
+    <Content Include="Tools\NUnit3\Mono.Cecil.dll" />
+    <Content Include="Tools\NUnit3\nunit-agent-x86.exe" />
+    <Content Include="Tools\NUnit3\nunit-agent.exe" />
+    <Content Include="Tools\NUnit3\nunit.engine.api.dll" />
+    <Content Include="Tools\NUnit3\nunit.engine.dll" />
+    <Content Include="Tools\NUnit3\nunit3-console.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
