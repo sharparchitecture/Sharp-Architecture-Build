@@ -9,10 +9,10 @@
     </ItemGroup>
     <Copy SourceFiles="@(NugetTemplatesFiles)" DestinationFiles="@(NugetTemplatesFiles->'$(NugetWorkspace)\%(RecursiveDir)%(Filename)%(Extension)')" />
 
-    <Copy SourceFiles="@(NugetPackage)" DestinationFolder="$(NugetWorkspace)\%(PackageName)\lib\$(NugetLibFrameworkVersion)\" />
+    <Copy SourceFiles="@(NugetPackage)" DestinationFolder="$(NugetWorkspace)\%(PackageName)\lib\%(TargetFramework)\" />
 
     <!-- Update package version -->
-	<Message Text="NuGetVersion: $(NugetVersion)" />
+    <Message Text="NuGetVersion: $(NugetVersion)" />
 	
     <XmlUpdate
       Prefix="nu"
