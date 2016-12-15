@@ -1,22 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="All">
+
+  <Import Project="$(OpenCoverMSBuildTasksPath)\OpenCover.targets" />
+  
   <Target Name="CreateNUnitResultsDir">
     <MakeDir Directories="$(NUnitResultsPath)" />
   </Target>
 
-  <Target Name="RunNUnit3Tests" Condition="'$(UseNUnit3)'=='true'">
+  <Target Name="RunNUnit3Tests" Condition=" '$(UseNUnit3)' == 'true' ">
     <PropertyGroup>
-      <TeamCityOutput Condition="'$(IsDesktopBuild)'!='true'">--teamcity</TeamCityOutput>
-      <NUnit3Where Condition="'$(Nunit3TestsFilter)'!=''">--where $(Nunit3TestsFilter)</NUnit3Where>
+      <TeamCityOutput Condition=" '$(IsDesktopBuild)' != 'true' ">--teamcity</TeamCityOutput>
+      <NUnit3Where Condition=" '$(Nunit3TestsFilter)' != '' ">--where $(Nunit3TestsFilter)</NUnit3Where>
     </PropertyGroup>
-    <Exec
-       Command="$(ToolsPath)\NUnit3\nunit3-console.exe @(AssembliesToTestWithNUnit) $(TeamCityOutput) $(NUnit3Where) --dispose-runners --noheader --result:&quot;$(NUnitResultsPath)\NUnitOutput.xml&quot;;format=nunit3"
-       WorkingDirectory="%(AssembliesToTestWithNUnit.RootDir)\%(AssembliesToTestWithNUnit.Directory)"
+  
+    <OpenCover.MSBuild.OpenCover Register="true" ReturnTargetCode="true"
+        ToolPath="$(ToolsPath)\OpenCover\tools"
+        Filter="$(OpenCoverFilter)" 
+        ExcludeByAttribute="$(OpenCoverExcludeByAttribute)"
+        Target="$(ToolsPath)\NUnit3\nunit3-console.exe"
+        TargetArgs="@(AssembliesToTestWithNUnit) $(TeamCityOutput) $(NUnit3Where) --dispose-runners --noheader --result:&quot;$(NUnitResultsPath)\NUnitOutput.xml&quot;;format=nunit3"
+        Output="$(NUnitResultsPath)\TestCoverage.xml"
+        ShowUnvisited="$(OpenCoverShowUnvisited)"
+    >
+    </OpenCover.MSBuild.OpenCover>
+    <Message Condition=" '$(IsDesktopBuild)' != 'true' "
+        Text="Skipping HTML report generation non-desktop build." />
+    <Exec 
+      Condition=" '$(IsDesktopBuild)' == 'true' "
+      Command="$(ToolsPath)\ReportGenerator\tools\ReportGenerator.exe -reports:$(NUnitResultsPath)\TestCoverage.xml -reporttypes:Html -targetdir:$(NUnitResultsPath)\CoverageReport"
+    />
+  </Target>
+  
+  <Target Name="UploadNUnitCoverage" DependsOnTargets="RunNUnit3Tests">
+    <Message Condition=" '$(IsDesktopBuild)' == 'true' "
+        Text="Skipping coverage results upload for desktop build." />
+    <Exec Condition=" '$(IsDesktopBuild)' != 'true' "
+        Command="$(ToolsPath)\coveralls.io\tools\coveralls.net.exe --opencover $(NUnitResultsPath)\TestCoverage.xml --full-sources"
     />
   </Target>
 
-  <Target Name="RunNUnit2Tests" Condition="'$(UseNUnit3)'!='true'">
+  <Target Name="RunNUnit2Tests" Condition=" '$(UseNUnit3)' != 'true' ">
     <NUnit Assemblies="@(AssembliesToTestWithNUnit)"
            ToolPath="$(ToolsPath)\NUnit.Runners.2.6.4\"
            OutputXmlFile="$(NUnitResultsPath)\NUnitOutput.xml" />
