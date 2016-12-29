@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
+  
   <Target Name="RestorePackages">
-    <Exec Command="$(ToolsPath)\nuget.exe restore @(SolutionsToBuild)" />
+    <Error
+      Text="nuget.exe shim not found. Install ChocolateyPackage nuget.commandline"
+      Condition="!Exists('$(ShimsPath)\nuget.exe')"
+    />
+           
+    <Exec Command="$(ShimsPath)\nuget.exe restore @(SolutionsToBuild)" />
   </Target>
 
   <Target Name="BuildSolutions" DependsOnTargets="RestorePackages">

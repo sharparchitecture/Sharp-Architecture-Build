@@ -23,5 +23,6 @@
   <Import Project="$(TargetsPath)\RunNUnitTests.target" />
   <Import Project="$(TargetsPath)\UpdateAssemblyVersion.target" />
   <Import Project="$(TargetsPath)\Nuget.target" />
+  <Import Project="$(TargetsPath)\ReSharperTools.target" />
 
 </Project>

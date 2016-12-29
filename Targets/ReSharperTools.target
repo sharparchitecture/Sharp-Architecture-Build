@@ -1,0 +1,31 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Target Name="FindDuplicates">
+    <Error
+      Text="dupfinder.exe shim not found. Install Chocolatey package resharper-clt.portable"
+      Condition="!Exists('$(ShimsPath)\dupfinder.exe')"
+    />
+    <MakeDir Directories="$(DuplicatesReportPath)" ContinueOnError="true" />
+    <Exec
+      WorkingDirectory="$(SolutionsPath)"
+      Command="$(ShimsPath)\dupfinder.exe /output=&quot;$(DuplicatesReportPath)\dupReport.xml&quot; /show-text &quot;$(SolutionsPath)\$(SolutionName).sln&quot; /exclude=&quot;SharpArch.Tests\**\*.cs" />
+    <Xslt3SingleFileTransform Xslt="@(DuplicatesReportTemplate)" Input="$(DuplicatesReportPath)\dupReport.xml" Output="$(DuplicatesReportPath)\CodeDuplicatesReport.html" />
+  </Target>
+
+
+  <Target Name="InspectCode">
+    <Error
+      Text="inspectcode.exe shim not found. Install Chocolatey package resharper-clt.portable"
+      Condition="!Exists('$(ShimsPath)\inspectcode.exe')"
+    />
+    <MakeDir Directories="$(CodeInspectionsReportPath)" ContinueOnError="true" />
+      <Exec
+        WorkingDirectory="$(SolutionsPath)"
+        Command="$(ShimsPath)\inspectcode.exe &quot;$(SolutionName).sln&quot; /output=&quot;$(CodeInspectionsReportPath)\codeInspections.xml&quot; --caches-home=&quot;$(SolutionRoot)\ResharperCaches&quot;" />
+
+    <Xslt3SingleFileTransform  Xslt="@(CodeInspectionsReportTemplate)"
+      Input="$(CodeInspectionsReportPath)\codeInspections.xml"
+      Output="$(CodeInspectionsReportPath)\CodeInspectionsReport.html" />
+  </Target>
+  
+</Project>

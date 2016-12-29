@@ -45,7 +45,7 @@
       ReplacementText="$(NextMajorRelease)"
       />
     <Exec WorkingDirectory="$(DropsPath)\$(SemanticVersion)\"
-      Command="$(ToolsPath)\nuget.exe pack $(NugetWorkspace)\%(NugetPackage.PackageName)\%(NugetPackage.NuspecFile)"
+      Command="$(ShimsPath)\nuget.exe pack $(NugetWorkspace)\%(NugetPackage.PackageName)\%(NugetPackage.NuspecFile)"
       />
 
     <Message Text="##teamcity[publishArtifacts '$(DropsPath)\$(SemanticVersion)\%(NugetPackage.PackageName).$(NuGetVersion).nupkg']"  />
