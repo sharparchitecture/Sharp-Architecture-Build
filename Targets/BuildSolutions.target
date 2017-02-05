@@ -3,7 +3,7 @@
   
   <Target Name="RestorePackages">
     <Error
-      Text="nuget.exe shim not found. Install ChocolateyPackage nuget.commandline"
+      Text="nuget.exe shim was not found. Install ChocolateyPackage nuget.commandline"
       Condition="!Exists('$(ShimsPath)\nuget.exe')"
     />
            

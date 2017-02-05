@@ -13,6 +13,10 @@
       Text="nunit-console shim not found. Install Chocolatey package nunit.portable first."
       Condition="!Exists('$(ShimsPath)\nunit3-console.exe')" 
     />
+    <Error
+      Text="OpenConver profiler was not found. Install Chocolatey package opencover.portable"
+      Condition="!Exists('$(OpenCoverMSBuildTasksPath)\OpenCover.targets')"
+    />
     <PropertyGroup>
       <TeamCityOutput Condition=" '$(IsDesktopBuild)' != 'true' ">--teamcity</TeamCityOutput>
       <NUnit3Where Condition=" '$(NUnit3TestsFilter)' != '' ">--where $(NUnit3TestsFilter)</NUnit3Where>
@@ -32,10 +36,13 @@
     <!-- reportgenerator.portable -->
     <Message Condition=" '$(IsDesktopBuild)' != 'true' "
         Text="Skipping HTML report generation non-desktop build." />
-    <Exec Condition=" '$(IsDesktopBuild)' == 'true' "
+    <Error
+      Text="Report Generator was not found. Install Chocolatey package reportgenerator.portable"
+      Condition="'$(IsDesktopBuild)' != 'true' "
+    />
+    <Exec Condition=" ('$(IsDesktopBuild)' == 'true') And (!Exists('$(ShimsPath)\ReportGenerator.exe')) "
       Command="$(ShimsPath)\ReportGenerator.exe -reports:$(NUnitResultsPath)\TestCoverage.xml -reporttypes:Html -targetdir:$(NUnitResultsPath)\CoverageReport"
     />
-    
     <MSBuild.Community.Tasks.WebUpload Condition=" '$(APPVEYOR_JOB_ID)' != '' "
       RemoteUri="https://ci.appveyor.com/api/testresults/nunit3/$(APPVEYOR_JOB_ID)"
       FileName="$(NUnitResultsPath)\NUnitOutput.xml"
