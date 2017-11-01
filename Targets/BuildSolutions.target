@@ -14,15 +14,9 @@
 
     <Message Text="SolutionsToBuild: @(SolutionsToBuild)" />
 
-    <!-- *** This line must NOT be merged back into the regular Build branch *** -->    
-    <!--<ReadLinesFromFile File="$(VersioningPath)\BuildNumber.txt">
-      <Output TaskParameter="Lines" PropertyName="BuildNumber"/>
-    </ReadLinesFromFile>-->
-
     <MSBuild 
       Projects="@(SolutionsToBuild)" 
       Properties="$(ForcedMSBuildProperties);BuildNumber=$(VersionBuild);$(HardLinksOptions)" />
-
   </Target>
 
 </Project>

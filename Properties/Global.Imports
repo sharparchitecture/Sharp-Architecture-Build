@@ -13,7 +13,8 @@
   <Import Project="$(TasksPath)\MSBuild.Extended.tasks" />
 
   <!-- Import Custom Project Targets -->
-  <Import Project="$(TargetsPath)\BuildSolutions.target" />
+  <Import Project="$(TargetsPath)\BuildSolutions.target"  Condition=" '$(UseDotNetCli)' != 'true' " />
+  <Import Project="$(TargetsPath)\DotNetBuild.target" Condition=" '$(UseDotNetCli)' == 'true' "/>
   <Import Project="$(TargetsPath)\BuildSuccess.target" />
   <Import Project="$(TargetsPath)\CleanSolution.target" />
   <Import Project="$(TargetsPath)\CreateDrops.target" />

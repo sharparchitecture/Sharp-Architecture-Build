@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <Target Name="DotNetRestore" Condition=" '$(UseDotNetCli)' == 'true' ">
+    <Exec Command="dotnet restore" WorkingDirectory="$(SolutionsPath)"/>
+  </Target>
+
+  <Target Name="DotNetBuild" Condition=" '$(UseDotNetCli)' == 'true' "
+    DependsOnTargets="DotNetRestore">
+
+    <Message Text="Solution path: $(SolutionsPath)" />
+
+    <Exec Command="dotnet build -c $(BuildConfig)" WorkingDirectory="$(SolutionsPath)"/>
+  </Target>
+
+</Project>
