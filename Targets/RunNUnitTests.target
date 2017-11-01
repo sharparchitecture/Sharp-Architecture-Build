@@ -10,7 +10,7 @@
 
   <Target Name="RunNUnit3Tests" Condition=" '$(UseNUnit3)' == 'true' ">
     <Error
-      Text="nunit-console shim not found. Install Chocolatey package nunit.portable first."
+      Text="nunit-console shim not found. Install Chocolatey package nunit-console.portable first."
       Condition="!Exists('$(ShimsPath)\nunit3-console.exe')" 
     />
     <Error
@@ -37,10 +37,10 @@
     <Message Condition=" '$(IsDesktopBuild)' != 'true' "
         Text="Skipping HTML report generation non-desktop build." />
     <Error
-      Text="Report Generator was not found. Install Chocolatey package reportgenerator.portable"
-      Condition="'$(IsDesktopBuild)' != 'true' "
+      Text="ReportGenerator shim not found. Install Chocoletey package reportgenerator.portable"
+      Condition=" ('$(IsDesktopBuild)' == 'true') And (!Exists('$(ShimsPath)\ReportGenerator.exe'))"
     />
-    <Exec Condition=" ('$(IsDesktopBuild)' == 'true') And (!Exists('$(ShimsPath)\ReportGenerator.exe')) "
+    <Exec Condition=" '$(IsDesktopBuild)' == 'true' "
       Command="$(ShimsPath)\ReportGenerator.exe -reports:$(NUnitResultsPath)\TestCoverage.xml -reporttypes:Html -targetdir:$(NUnitResultsPath)\CoverageReport"
     />
     <MSBuild.Community.Tasks.WebUpload Condition=" '$(APPVEYOR_JOB_ID)' != '' "
@@ -57,16 +57,8 @@
     />
   </Target>
 
-  <Target Name="RunNUnit2Tests" Condition=" '$(UseNUnit3)' != 'true' ">
-    <NUnit Assemblies="@(AssembliesToTestWithNUnit)"
-           ToolPath="$(ToolsPath)\NUnit.Runners.2.6.4\"
-           OutputXmlFile="$(NUnitResultsPath)\NUnitOutput.xml" />
-
-    <Message Text="##teamcity[importData type='nunit' path='$(NUnitResultsPath)\NUnitOutput.xml']"  />
-  </Target>
-
   <Target Name="RunNUnitTests"
-          DependsOnTargets="CreateDrops;CreateNUnitResultsDir;RunNUnit2Tests;RunNUnit3Tests">
+          DependsOnTargets="CreateDrops;CreateNUnitResultsDir;RunNUnit3Tests">
   </Target>
 
 </Project>

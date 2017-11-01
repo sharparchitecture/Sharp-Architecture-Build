@@ -8,7 +8,6 @@
   <Import Project="$(PropertiesPath)\CPUArchitecture.properties" />
 
   <!-- Import Custom MSBuild Tasks -->
-  <Import Project="$(TasksPath)\Microsoft.Sdc.Common.tasks" />
   <Import Project="$(TasksPath)\MSBuild.Community.Tasks.Targets" />
   <Import Project="$(TasksPath)\MSBuild.Extended.tasks" />
 
