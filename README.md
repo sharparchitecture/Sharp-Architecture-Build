@@ -1,5 +1,6 @@
-------------------------------
--- Sharp Architecture Build --
+*Note:* Sharp-Architecture-Build is not under development anymore. Sharp-Architecture uses [Cake Build](https://cakebuild.net/) now. 
+
+Sharp Architecture Build
 ------------------------------
 
 Common build system for the Sharp Architecture project.
